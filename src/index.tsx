@@ -20,7 +20,10 @@
  */
 
 import React from "react";
-import FullCalendar, { DateSelectArg } from "@fullcalendar/react";
+import FullCalendar, {
+	DateSelectArg,
+	EventClickArg,
+} from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 
@@ -93,6 +96,9 @@ class Hours extends React.Component<Props> {
 					themeSystem={
 						this.props.theme ? this.props.theme : "standard"
 					}
+					eventClick={(eventInfo: EventClickArg) => {
+						eventInfo.event.remove();
+					}}
 				/>
 			</React.Fragment>
 		);
