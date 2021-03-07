@@ -52,10 +52,18 @@ class Hours extends React.Component<Props> {
 		while (
 			ohIterator.advance(moment().day("Monday").add(1, "week").toDate())
 		) {
-			iteratorChanges.push({
-				state: ohIterator.getState(),
-				date: ohIterator.getDate(),
-			});
+			if (ohIterator.getState() === true) {
+				if (ohIterator.getNextChange()) {
+					iteratorChanges.push({
+						from: ohIterator.getDate(),
+						to: ohIterator.getNextChange().getDate(),
+					});
+				} else {
+					iteratorChanges.push({
+						from: ohIterator.getDate(),
+					});
+				}
+			}
 		}
 		console.debug(iteratorChanges);
 	}
