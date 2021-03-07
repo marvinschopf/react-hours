@@ -23,7 +23,8 @@ import React from "react";
 import Hours from "./index";
 
 export default {
-	title: "Hours",
+	title: "React Hours",
 };
 
-export const Primary = () => <Hours />;
+export const Default = () => <Hours />;
+export const CustomLocale = () => <Hours locale="de" />;
