@@ -67,7 +67,6 @@ class Hours extends React.Component<Props> {
 					selectOverlap={true}
 					select={(selectionInfo: DateSelectArg) => {
 						console.debug(selectionInfo);
-						let title: string = "";
 						this.calendarRef.current.getApi().addEvent({
 							start: selectionInfo.start,
 							end: selectionInfo.end,
