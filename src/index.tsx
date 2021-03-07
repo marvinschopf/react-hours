@@ -85,6 +85,14 @@ class Hours extends React.Component<Props> {
 								dayjs(selectionInfo.end).isBetween(
 									existingEvent.start,
 									existingEvent.end
+								) ||
+								dayjs(existingEvent.start).isBetween(
+									selectionInfo.start,
+									selectionInfo.end
+								) ||
+								dayjs(existingEvent.end).isBetween(
+									selectionInfo.start,
+									selectionInfo.end
 								)
 							) {
 								conflict = true;
