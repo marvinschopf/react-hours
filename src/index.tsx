@@ -84,6 +84,7 @@ class Hours extends React.Component<Props> {
 					eventClick={(eventInfo: EventClickArg) => {
 						eventInfo.event.remove();
 					}}
+					eventOverlap={false}
 				/>
 			</React.Fragment>
 		);
