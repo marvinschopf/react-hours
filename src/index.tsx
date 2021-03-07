@@ -45,6 +45,10 @@ class Hours extends React.Component<Props> {
 						console.log(selectionInfo);
 					}}
 					locale={this.props.locale ? this.props.locale : "en"}
+					headerToolbar={false}
+					dayHeaderFormat={{
+						weekday: "long",
+					}}
 				/>
 			</React.Fragment>
 		);
