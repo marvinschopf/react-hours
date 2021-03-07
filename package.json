@@ -39,6 +39,8 @@
 		"singleQuote": false
 	},
 	"dependencies": {
+		"@fullcalendar/react": "5.5.0",
+		"@fullcalendar/timegrid": "5.5.1",
 		"opening_hours": "3.5.0"
 	}
 }
