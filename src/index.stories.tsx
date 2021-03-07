@@ -26,6 +26,6 @@ export default {
 	title: "React Hours",
 };
 
-export const Default = () => <Hours />;
+export const Default = () => <Hours theme="standard" />;
 export const CustomLocale = () => <Hours locale="de" />;
 export const Bootstrap = () => <Hours theme="bootstrap" />;
