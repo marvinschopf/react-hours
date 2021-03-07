@@ -49,20 +49,24 @@ class Hours extends React.Component<Props> {
 			moment().day("Monday").toDate()
 		);
 		let iteratorChanges = [];
+		let latestChange;
 		while (
 			ohIterator.advance(moment().day("Monday").add(1, "week").toDate())
 		) {
-			if (ohIterator.getState() === true) {
-				if (ohIterator.getNextChange()) {
-					iteratorChanges.push({
-						from: ohIterator.getDate(),
-						to: ohIterator.getNextChange().getDate(),
-					});
-				} else {
-					iteratorChanges.push({
-						from: ohIterator.getDate(),
-					});
+			if (latestChange) {
+				if (
+					ohIterator.getState() === false &&
+					latestChange.state === true
+				) {
+					latestChange.to = ohIterator.getDate();
+					iteratorChanges.push(latestChange);
+					latestChange = null;
 				}
+			} else {
+				latestChange = {
+					state: ohIterator.getState(),
+					from: ohIterator.getDate(),
+				};
 			}
 		}
 		console.debug(iteratorChanges);
