@@ -18,12 +18,12 @@
  * @copyright 2021 Marvin Schopf
  *
  */
-import * as React from "react";
-declare type Props = {
-    value?: string;
+
+import React from "react";
+import Hours from "./index";
+
+export default {
+	title: "Hours",
 };
-declare class Hours extends React.Component<Props> {
-    constructor(props: Props);
-    render(): any;
-}
-export default Hours;
+
+export const Primary = () => <Hours />;

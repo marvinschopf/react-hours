@@ -17,8 +17,12 @@
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^17.1.0",
 		"@rollup/plugin-node-resolve": "^11.2.0",
+		"@storybook/react": "^6.1.21",
 		"@types/react": "^17.0.3",
 		"@types/react-dom": "^17.0.1",
+		"babel-loader": "^8.2.2",
+		"babel-preset-react-app": "^10.0.0",
+		"postcss": "^8.2.7",
 		"prettier": "^2.2.1",
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",
@@ -31,8 +35,10 @@
 		"typescript": "^4.2.3"
 	},
 	"scripts": {
-		"style:fix": "prettier --write src/ *.js *.ts *.json .github/",
-		"style:lint": "prettier --check src/ *.js *.ts *.json .github/",
+		"style:fix": "prettier --write src/ *.js *.ts *.json .github/ .storybook/",
+		"style:lint": "prettier --check src/ *.js *.ts *.json .github/ .storybook/",
+		"storybook:start": "start-storybook -p 6006",
+		"storybook:build": "build-storybook",
 		"build": "rollup --config"
 	},
 	"prettier": {
