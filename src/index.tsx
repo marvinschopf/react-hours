@@ -31,6 +31,8 @@ type Props = {
 };
 
 class Hours extends React.Component<Props> {
+	calendarRef: React.RefObject<FullCalendar> = React.createRef();
+
 	constructor(props: Props) {
 		super(props);
 	}
@@ -39,6 +41,7 @@ class Hours extends React.Component<Props> {
 		return (
 			<React.Fragment>
 				<FullCalendar
+					ref={this.calendarRef}
 					plugins={[interactionPlugin, dayGridPlugin]}
 					selectable={true}
 					selectOverlap={true}
