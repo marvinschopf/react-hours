@@ -30,7 +30,8 @@
 	},
 	"scripts": {
 		"style:fix": "prettier --write src/ *.js *.ts *.json .github/",
-		"style:lint": "prettier --check src/ *.js *.ts *.json .github/"
+		"style:lint": "prettier --check src/ *.js *.ts *.json .github/",
+		"build": "rollup --config"
 	},
 	"prettier": {
 		"useTabs": true,
