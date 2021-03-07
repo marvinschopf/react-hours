@@ -30,25 +30,33 @@ type Props = {
 	theme?: "standard" | "bootstrap";
 };
 
-const Hours: React.FunctionComponent<Props> = function (props: Props) {
-	return (
-		<React.Fragment>
-			<FullCalendar
-				plugins={[interactionPlugin, dayGridPlugin]}
-				selectable={true}
-				selectOverlap={true}
-				select={(selectionInfo) => {
-					console.log(selectionInfo);
-				}}
-				locale={props.locale ? props.locale : "en"}
-				headerToolbar={false}
-				dayHeaderFormat={{
-					weekday: "long",
-				}}
-				themeSystem={props.theme ? props.theme : "standard"}
-			/>
-		</React.Fragment>
-	);
-};
+class Hours extends React.Component<Props> {
+	constructor(props: Props) {
+		super(props);
+	}
+
+	render() {
+		return (
+			<React.Fragment>
+				<FullCalendar
+					plugins={[interactionPlugin, dayGridPlugin]}
+					selectable={true}
+					selectOverlap={true}
+					select={(selectionInfo) => {
+						console.log(selectionInfo);
+					}}
+					locale={this.props.locale ? this.props.locale : "en"}
+					headerToolbar={false}
+					dayHeaderFormat={{
+						weekday: "long",
+					}}
+					themeSystem={
+						this.props.theme ? this.props.theme : "standard"
+					}
+				/>
+			</React.Fragment>
+		);
+	}
+}
 
 export default Hours;
