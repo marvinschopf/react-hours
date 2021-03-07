@@ -20,9 +20,26 @@
  */
 
 import React from "react";
-import FullCalendar from "@fullcalendar/react";
+import FullCalendar, { DateSelectArg } from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
+
+function mapDateDayToRealDay(num: number): number {
+	return [6, 1, 2, 3, 4, 5][num] + 1;
+}
+
+function mapDayToName(num: number): string {
+	return [
+		"",
+		"Monday",
+		"Tuesday",
+		"Wednesday",
+		"Thursday",
+		"Friday",
+		"Saturday",
+		"Sunday",
+	][num];
+}
 
 type Props = {
 	value?: string;
@@ -45,8 +62,28 @@ class Hours extends React.Component<Props> {
 					plugins={[interactionPlugin, dayGridPlugin]}
 					selectable={true}
 					selectOverlap={true}
-					select={(selectionInfo) => {
-						console.log(selectionInfo);
+					select={(selectionInfo: DateSelectArg) => {
+						console.debug(selectionInfo);
+						let title: string = "";
+						if (
+							selectionInfo.start.getDay() ===
+							selectionInfo.end.getDay()
+						) {
+							title = `${selectionInfo.start.getHours()}:${selectionInfo.start.getMinutes()} - ${selectionInfo.end.getHours()}:${selectionInfo.end.getMinutes()}`;
+						} else {
+							title = `${mapDayToName(
+								mapDateDayToRealDay(
+									selectionInfo.start.getDay()
+								)
+							)} ${selectionInfo.start.getHours()}:${selectionInfo.start.getMinutes()} - ${mapDayToName(
+								mapDateDayToRealDay(selectionInfo.end.getDay())
+							)} ${selectionInfo.end.getHours()}:${selectionInfo.end.getMinutes()}`;
+						}
+						this.calendarRef.current.getApi().addEvent({
+							start: selectionInfo.start,
+							end: selectionInfo.end,
+							title: title,
+						});
 					}}
 					locale={this.props.locale ? this.props.locale : "en"}
 					headerToolbar={false}
