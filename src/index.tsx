@@ -27,11 +27,8 @@ import FullCalendar, {
 } from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import dayjs from "dayjs";
-import isBetween from "dayjs/plugin/isBetween";
+import moment from "moment";
 import openingHours from "opening_hours";
-
-dayjs.extend(isBetween);
 
 function mapDateDayToRealDay(num: number): number {
 	return [6, 1, 2, 3, 4, 5][num] + 1;
@@ -90,19 +87,19 @@ class Hours extends React.Component<Props> {
 						let conflict: boolean = false;
 						existingEvents.forEach((existingEvent: EventApi) => {
 							if (
-								dayjs(selectionInfo.start).isBetween(
+								moment(selectionInfo.start).isBetween(
 									existingEvent.start,
 									existingEvent.end
 								) ||
-								dayjs(selectionInfo.end).isBetween(
+								moment(selectionInfo.end).isBetween(
 									existingEvent.start,
 									existingEvent.end
 								) ||
-								dayjs(existingEvent.start).isBetween(
+								moment(existingEvent.start).isBetween(
 									selectionInfo.start,
 									selectionInfo.end
 								) ||
-								dayjs(existingEvent.end).isBetween(
+								moment(existingEvent.end).isBetween(
 									selectionInfo.start,
 									selectionInfo.end
 								)
