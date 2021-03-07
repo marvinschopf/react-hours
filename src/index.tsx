@@ -27,6 +27,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 type Props = {
 	value?: string;
 	locale?: string;
+	theme?: "standard" | "bootstrap";
 };
 
 class Hours extends React.Component<Props> {
@@ -49,6 +50,9 @@ class Hours extends React.Component<Props> {
 					dayHeaderFormat={{
 						weekday: "long",
 					}}
+					themeSystem={
+						this.props.theme ? this.props.theme : "standard"
+					}
 				/>
 			</React.Fragment>
 		);
