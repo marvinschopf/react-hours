@@ -62,7 +62,12 @@ class Hours extends React.Component<Props> {
 
 	importOSM(oh: string) {
 		const ohObject = new openingHours(oh);
-		console.log(ohObject.getOpenIntervals());
+		console.log(
+			ohObject.getOpenIntervals(
+				moment().toDate(),
+				moment().add(1, "week").toDate()
+			)
+		);
 	}
 
 	componentDidMount() {
