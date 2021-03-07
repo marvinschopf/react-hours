@@ -68,24 +68,9 @@ class Hours extends React.Component<Props> {
 					select={(selectionInfo: DateSelectArg) => {
 						console.debug(selectionInfo);
 						let title: string = "";
-						if (
-							selectionInfo.start.getDay() ===
-							selectionInfo.end.getDay()
-						) {
-							title = `${selectionInfo.start.getHours()}:${selectionInfo.start.getMinutes()} - ${selectionInfo.end.getHours()}:${selectionInfo.end.getMinutes()}`;
-						} else {
-							title = `${mapDayToName(
-								mapDateDayToRealDay(
-									selectionInfo.start.getDay()
-								)
-							)} ${selectionInfo.start.getHours()}:${selectionInfo.start.getMinutes()} - ${mapDayToName(
-								mapDateDayToRealDay(selectionInfo.end.getDay())
-							)} ${selectionInfo.end.getHours()}:${selectionInfo.end.getMinutes()}`;
-						}
 						this.calendarRef.current.getApi().addEvent({
 							start: selectionInfo.start,
 							end: selectionInfo.end,
-							title: title,
 						});
 					}}
 					locale={this.props.locale ? this.props.locale : "en"}
