@@ -29,3 +29,4 @@ export default {
 export const Default = () => <Hours theme="standard" />;
 export const CustomLocale = () => <Hours locale="de" />;
 export const Bootstrap = () => <Hours theme="bootstrap" />;
+export const Predefined = () => <Hours value="We 12:00-14:00" />;

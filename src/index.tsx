@@ -29,6 +29,7 @@ import dayGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
+import openingHours from "opening_hours";
 
 dayjs.extend(isBetween);
 
@@ -60,6 +61,17 @@ class Hours extends React.Component<Props> {
 
 	constructor(props: Props) {
 		super(props);
+	}
+
+	importOSM(oh: string) {
+		const ohObject = new openingHours(oh);
+		console.log(ohObject.getOpenIntervals());
+	}
+
+	componentDidMount() {
+		if (this.props.value) {
+			this.importOSM(this.props.value);
+		}
 	}
 
 	render() {
