@@ -30,23 +30,6 @@ import interactionPlugin from "@fullcalendar/interaction";
 import moment from "moment";
 import openingHours from "opening_hours";
 
-function mapDateDayToRealDay(num: number): number {
-	return [6, 1, 2, 3, 4, 5][num] + 1;
-}
-
-function mapDayToName(num: number): string {
-	return [
-		"",
-		"Monday",
-		"Tuesday",
-		"Wednesday",
-		"Thursday",
-		"Friday",
-		"Saturday",
-		"Sunday",
-	][num];
-}
-
 type Props = {
 	value?: string;
 	locale?: string;
@@ -62,12 +45,19 @@ class Hours extends React.Component<Props> {
 
 	importOSM(oh: string) {
 		const ohObject = new openingHours(oh);
-		console.log(
-			ohObject.getOpenIntervals(
-				moment().toDate(),
-				moment().add(1, "week").toDate()
-			)
+		const ohIterator = ohObject.getIterator(
+			moment().day("Monday").toDate()
 		);
+		let iteratorChanges = [];
+		while (
+			ohIterator.advance(moment().day("Monday").add(1, "week").toDate())
+		) {
+			iteratorChanges.push({
+				state: ohIterator.getState(),
+				date: ohIterator.getDate(),
+			});
+		}
+		console.debug(iteratorChanges);
 	}
 
 	componentDidMount() {
