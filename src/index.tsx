@@ -22,10 +22,15 @@
 import React from "react";
 import FullCalendar, {
 	DateSelectArg,
+	EventApi,
 	EventClickArg,
 } from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
+import dayjs from "dayjs";
+import isBetween from "dayjs/plugin/isBetween";
+
+dayjs.extend(isBetween);
 
 function mapDateDayToRealDay(num: number): number {
 	return [6, 1, 2, 3, 4, 5][num] + 1;
@@ -67,10 +72,29 @@ class Hours extends React.Component<Props> {
 					selectOverlap={true}
 					select={(selectionInfo: DateSelectArg) => {
 						console.debug(selectionInfo);
-						this.calendarRef.current.getApi().addEvent({
-							start: selectionInfo.start,
-							end: selectionInfo.end,
+						const existingEvents: EventApi[] = this.calendarRef.current
+							.getApi()
+							.getEvents();
+						let conflict: boolean = false;
+						existingEvents.forEach((existingEvent: EventApi) => {
+							if (
+								dayjs(selectionInfo.start).isBetween(
+									existingEvent.start,
+									existingEvent.end
+								) ||
+								dayjs(selectionInfo.end).isBetween(
+									existingEvent.start,
+									existingEvent.end
+								)
+							) {
+								conflict = true;
+							}
 						});
+						if (!conflict)
+							this.calendarRef.current.getApi().addEvent({
+								start: selectionInfo.start,
+								end: selectionInfo.end,
+							});
 					}}
 					locale={this.props.locale ? this.props.locale : "en"}
 					headerToolbar={false}
