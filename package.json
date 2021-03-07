@@ -1,0 +1,30 @@
+{
+	"name": "react-hours",
+	"license": "Apache-2.0",
+	"author": {
+		"name": "Marvin Schopf",
+		"email": "marvin@schopf.biz",
+		"url": "https://www.marvinschopf.com"
+	},
+	"funding": "https://sponsor.marvinschopf.com/react-hours",
+	"peerDependencies": {
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1"
+	},
+	"devDependencies": {
+		"prettier": "^2.2.1",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"rollup": "^2.40.0"
+	},
+	"scripts": {
+		"style:fix": "prettier --write src/ *.js *.ts *.json .github/",
+		"style:lint": "prettier --check src/ *.js *.ts *.json .github/"
+	},
+	"prettier": {
+		"useTabs": true,
+		"semi": true,
+		"tabWidth": 4,
+		"singleQuote": false
+	}
+}
