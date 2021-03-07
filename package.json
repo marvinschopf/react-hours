@@ -9,7 +9,7 @@
 		"url": "https://www.marvinschopf.com"
 	},
 	"funding": "https://sponsor.marvinschopf.com/react-hours",
-  "repository": "https://github.com/marvinschopf/react-hours",
+	"repository": "https://github.com/marvinschopf/react-hours",
 	"peerDependencies": {
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1"
@@ -37,5 +37,8 @@
 		"semi": true,
 		"tabWidth": 4,
 		"singleQuote": false
+	},
+	"dependencies": {
+		"opening_hours": "3.5.0"
 	}
 }
