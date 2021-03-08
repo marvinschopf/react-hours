@@ -44,32 +44,44 @@ class Hours extends React.Component<Props> {
 	}
 
 	importOSM(oh: string) {
-		const ohObject = new openingHours(oh);
-		const ohIterator = ohObject.getIterator(
-			moment().day("Monday").toDate()
-		);
-		let iteratorChanges = [];
-		let latestChange;
-		while (
-			ohIterator.advance(moment().day("Monday").add(1, "week").toDate())
-		) {
-			if (latestChange) {
-				if (
-					ohIterator.getState() === false &&
-					latestChange.state === true
-				) {
-					latestChange.to = ohIterator.getDate();
-					iteratorChanges.push(latestChange);
-					latestChange = null;
+		if (oh != "24/7") {
+			const ohObject = new openingHours(oh);
+			const ohIterator = ohObject.getIterator(
+				moment().day("Monday").toDate()
+			);
+			let iteratorChanges = [];
+			let latestChange;
+			while (
+				ohIterator.advance(
+					moment().day("Monday").add(1, "week").toDate()
+				)
+			) {
+				if (latestChange) {
+					if (
+						ohIterator.getState() === false &&
+						latestChange.state === true
+					) {
+						latestChange.to = ohIterator.getDate();
+						iteratorChanges.push(latestChange);
+						latestChange = null;
+					}
+				} else {
+					latestChange = {
+						state: ohIterator.getState(),
+						from: ohIterator.getDate(),
+					};
 				}
-			} else {
-				latestChange = {
-					state: ohIterator.getState(),
-					from: ohIterator.getDate(),
-				};
 			}
+			console.debug(iteratorChanges);
+		} else {
+			console.debug([
+				{
+					from: moment().day("Monday").toDate(),
+					to: moment().day("Monday").add(1, "week").toDate(),
+					state: true,
+				},
+			]);
 		}
-		console.debug(iteratorChanges);
 	}
 
 	componentDidMount() {
