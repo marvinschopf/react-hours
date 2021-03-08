@@ -90,35 +90,28 @@ class Hours extends React.Component<Props> {
 			}
 			console.debug(iteratorChanges);
 		} else {
-			this.calendarRef.current.getApi().addEvent({
-				start: moment()
-					.day("Monday")
-					.set("hours", 0)
-					.set("minutes", 0)
-					.toDate(),
-				end: moment()
-					.day("Monday")
-					.add(8, "days")
-					.set("hours", 23)
-					.set("minutes", 59)
-					.toDate(),
-			});
-			console.debug([
-				{
-					from: moment()
-						.day("Monday")
+			[
+				"Monday",
+				"Tuesday",
+				"Wednesday",
+				"Thursday",
+				"Friday",
+				"Saturday",
+				"Sunday",
+			].map((dayOfWeek: string) => {
+				this.calendarRef.current.getApi().addEvent({
+					start: moment()
+						.day(dayOfWeek)
 						.set("hours", 0)
 						.set("minutes", 0)
 						.toDate(),
-					to: moment()
-						.day("Monday")
-						.add(8, "days")
+					end: moment()
+						.day(dayOfWeek)
 						.set("hours", 23)
 						.set("minutes", 59)
 						.toDate(),
-					state: true,
-				},
-			]);
+				});
+			});
 		}
 	}
 
