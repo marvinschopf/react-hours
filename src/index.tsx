@@ -63,6 +63,10 @@ class Hours extends React.Component<Props> {
 					) {
 						latestChange.to = ohIterator.getDate();
 						iteratorChanges.push(latestChange);
+						this.calendarRef.current.getApi().addEvent({
+							start: latestChange.from,
+							end: latestChange.to,
+						});
 						latestChange = null;
 					}
 				} else {
@@ -74,6 +78,10 @@ class Hours extends React.Component<Props> {
 			}
 			console.debug(iteratorChanges);
 		} else {
+			this.calendarRef.current.getApi().addEvent({
+				start: moment().day("Monday").toDate(),
+				end: moment().day("Monday").add(1, "week").toDate(),
+			});
 			console.debug([
 				{
 					from: moment().day("Monday").toDate(),
