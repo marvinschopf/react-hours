@@ -1,0 +1,3 @@
+baseURL = "https://hours.js.org/"
+languageCode = "en-us"
+title = "react-hours"
