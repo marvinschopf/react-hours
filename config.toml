@@ -3,5 +3,23 @@ languageCode = "en-us"
 title = "react-hours"
 theme = "cayman"
 
+disableKinds = ["taxonomy","taxonomyTerm"]
+
+# Syntax highlighting
+pygmentsCodefences = true
+pygmentsStyle = "pygments"
+
+[params]
 project_name = "react-hours"
 project_tagline = "📆 react-hours is an OpenStreetMap opening_hours specification compatible editor for opening hours with a calendar frontend."
+footer = "© [Marvin Schopf](https://www.marvinschopf.com)"
+
+[menu]
+[[menu.nav]]
+name = "View on GitHub"
+url = "https://github.com/marvinschopf/react-hours"
+weight = 1
+[[menu.nav]]
+name = "View on NPM"
+url = "https://www.npmjs.com/package/react-hours"
+weight = 2
