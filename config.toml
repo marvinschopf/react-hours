@@ -11,7 +11,7 @@ pygmentsStyle = "pygments"
 
 [params]
 project_name = "react-hours"
-project_tagline = "📆 react-hours is an OpenStreetMap opening_hours specification compatible editor for opening hours with a calendar frontend."
+project_tagline = "📆 react-hours is an OpenStreetMap opening_hours specification compatible editor with a calendar frontend."
 footer = "© [Marvin Schopf](https://www.marvinschopf.com)"
 
 [menu]
