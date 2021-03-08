@@ -65,6 +65,9 @@ class Hours extends React.Component<Props> {
 						.toDate()
 				)
 			) {
+				console.debug(
+					`${ohIterator.getDate()}: ${ohIterator.getState()}`
+				);
 				if (latestChange) {
 					if (
 						ohIterator.getState() === false &&
