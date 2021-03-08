@@ -41,3 +41,11 @@ export const ChangeCallback = () => (
 		}}
 	/>
 );
+export const PredefinedAndChangeCallback = () => (
+	<Hours
+		onChange={(val: string) => {
+			console.log(val);
+		}}
+		value="Mo 01:00-04:15,08:00-10:00,16:30-18:15; Tu 17:30-18:30; We 04:15-24:00; Th 00:00-11:00; Fr 02:15-02:30,06:15-09:45; Sa 01:30-01:45,05:30-10:15; Su 17:45-19:00"
+	/>
+);
