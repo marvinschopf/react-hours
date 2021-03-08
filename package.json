@@ -29,8 +29,8 @@
 		"typescript": "^4.2.3"
 	},
 	"scripts": {
-		"style:fix": "prettier --write src/ *.js *.ts *.json .github/ .storybook/",
-		"style:lint": "prettier --check src/ *.js *.ts *.json .github/ .storybook/",
+		"style:fix": "prettier --write src/ *.js *.ts *.json *.md .github/ .storybook/",
+		"style:lint": "prettier --check src/ *.js *.ts *.json *.md .github/ .storybook/",
 		"storybook:start": "start-storybook -p 6006",
 		"storybook:build": "build-storybook",
 		"build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json"
