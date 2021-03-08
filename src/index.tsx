@@ -130,14 +130,14 @@ class Hours extends React.Component<Props> {
 		const events: EventApi[] = this.calendarRef.current
 			.getApi()
 			.getEvents();
-		let timeFrames: {
-			monday: [];
-			tuesday: [];
-			wednesday: [];
-			thursday: [];
-			friday: [];
-			saturday: [];
-			sunday: [];
+		let timeFrames = {
+			monday: [],
+			tuesday: [],
+			wednesday: [],
+			thursday: [],
+			friday: [],
+			saturday: [],
+			sunday: [],
 		};
 		let stringPieces: string[] = [];
 		events.forEach((event: EventApi) => {
@@ -178,7 +178,7 @@ class Hours extends React.Component<Props> {
 			"saturday",
 			"sunday",
 		].map((dayOfWeek: string) => {
-			if (timeFrames[dayOfWeek].length >= 1) {
+			if (timeFrames[dayOfWeek] && timeFrames[dayOfWeek].length >= 1) {
 				stringPieces.push(
 					`${capitalizeFirstLetter(
 						dayOfWeek.substring(0, 2)
