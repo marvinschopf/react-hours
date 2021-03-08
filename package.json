@@ -11,6 +11,17 @@
 	},
 	"funding": "https://sponsor.marvinschopf.com/react-hours",
 	"repository": "https://github.com/marvinschopf/react-hours",
+	"keywords": [
+		"opening hours",
+		"business hours",
+		"hours",
+		"react opening hours",
+		"react",
+		"calendar",
+		"opening hours editor",
+		"react business hours",
+		"hours editor"
+	],
 	"peerDependencies": {
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1"
