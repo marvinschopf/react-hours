@@ -70,9 +70,6 @@ class Hours extends React.Component<Props> {
 						.toDate()
 				)
 			) {
-				console.debug(
-					`${ohIterator.getDate()}: ${ohIterator.getState()}`
-				);
 				if (latestChange) {
 					if (
 						ohIterator.getState() === false &&
@@ -93,7 +90,6 @@ class Hours extends React.Component<Props> {
 					};
 				}
 			}
-			console.debug(iteratorChanges);
 		} else {
 			[
 				"Monday",
@@ -198,7 +194,6 @@ class Hours extends React.Component<Props> {
 					selectable={true}
 					selectOverlap={true}
 					select={(selectionInfo: DateSelectArg) => {
-						console.debug(selectionInfo);
 						const existingEvents: EventApi[] = this.calendarRef.current
 							.getApi()
 							.getEvents();
