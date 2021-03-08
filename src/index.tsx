@@ -112,7 +112,7 @@ class Hours extends React.Component<Props> {
 						.toDate(),
 					to: moment()
 						.day("Monday")
-						.add(1, "week")
+						.add(8, "days")
 						.set("hours", 23)
 						.set("minutes", 59)
 						.toDate(),
