@@ -49,8 +49,8 @@ class Hours extends React.Component<Props> {
 			const ohIterator = ohObject.getIterator(
 				moment()
 					.day("Monday")
-					.set("hours", 23)
-					.set("minutes", 59)
+					.set("hours", 0)
+					.set("minutes", 0)
 					.toDate()
 			);
 			let iteratorChanges = [];
