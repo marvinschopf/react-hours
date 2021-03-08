@@ -30,6 +30,8 @@ import interactionPlugin from "@fullcalendar/interaction";
 import moment from "moment";
 import openingHours from "opening_hours";
 
+moment.locale("en");
+
 type Props = {
 	value?: string;
 	locale?: string;
