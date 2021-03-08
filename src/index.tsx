@@ -36,6 +36,10 @@ type Props = {
 	theme?: "standard" | "bootstrap";
 };
 
+function capitalizeFirstLetter(str: string): string {
+	return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 class Hours extends React.Component<Props> {
 	calendarRef: React.RefObject<FullCalendar> = React.createRef();
 
@@ -119,6 +123,69 @@ class Hours extends React.Component<Props> {
 		if (this.props.value) {
 			this.importOSM(this.props.value);
 		}
+	}
+
+	outputOSM(): string {
+		const events: EventApi[] = this.calendarRef.current
+			.getApi()
+			.getEvents();
+		let timeFrames: {
+			monday: [];
+			tuesday: [];
+			wednesday: [];
+			thursday: [];
+			friday: [];
+			saturday: [];
+			sunday: [];
+		};
+		let stringPieces: string[] = [];
+		events.forEach((event: EventApi) => {
+			if (event.start.getDay() === event.end.getDay()) {
+				timeFrames[
+					moment(event.start).format("dddd").toLowerCase()
+				].push(
+					`${moment(event.start).format("hh:mm")}-${moment(
+						event.end
+					).format("hh:mm")}`
+				);
+			} else {
+				const momentBegin: moment.Moment = moment(event.start);
+				const momentEnd: moment.Moment = moment(event.end);
+				timeFrames[momentBegin.format("dddd").toLowerCase()].push(
+					`${momentBegin.format("hh:mm")}-24:00`
+				);
+				timeFrames[momentEnd.format("dddd").toLowerCase()].push(
+					`00:00-${momentEnd.format("hh:mm")}`
+				);
+				const numOfInDays: number =
+					momentEnd
+						.endOf("day")
+						.diff(momentBegin.startOf("day"), "days") - 1;
+				for (let i: number = 0; i < numOfInDays; i++) {
+					timeFrames[
+						momentBegin.add(i, "days").format("dddd").toLowerCase()
+					].push(`00:00-24:00`);
+				}
+			}
+		});
+		[
+			"monday",
+			"tuesday",
+			"wednesday",
+			"thursday",
+			"friday",
+			"saturday",
+			"sunday",
+		].map((dayOfWeek: string) => {
+			if (timeFrames[dayOfWeek].length >= 1) {
+				stringPieces.push(
+					`${capitalizeFirstLetter(
+						dayOfWeek.substring(0, 2)
+					)} ${timeFrames[dayOfWeek].join(",")}`
+				);
+			}
+		});
+		return stringPieces.join("; ");
 	}
 
 	render() {
