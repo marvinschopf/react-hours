@@ -34,6 +34,7 @@ type Props = {
 	value?: string;
 	locale?: string;
 	theme?: "standard" | "bootstrap";
+	onChange?: (value: string) => void;
 };
 
 function capitalizeFirstLetter(str: string): string {
@@ -224,11 +225,15 @@ class Hours extends React.Component<Props> {
 								conflict = true;
 							}
 						});
-						if (!conflict)
+						if (!conflict) {
+							if (this.props.onChange) {
+								this.props.onChange(this.outputOSM());
+							}
 							this.calendarRef.current.getApi().addEvent({
 								start: selectionInfo.start,
 								end: selectionInfo.end,
 							});
+						}
 					}}
 					locale={this.props.locale ? this.props.locale : "en"}
 					headerToolbar={false}
@@ -239,6 +244,9 @@ class Hours extends React.Component<Props> {
 						this.props.theme ? this.props.theme : "standard"
 					}
 					eventClick={(eventInfo: EventClickArg) => {
+						if (this.props.onChange) {
+							this.props.onChange(this.outputOSM());
+						}
 						eventInfo.event.remove();
 					}}
 					eventOverlap={false}
