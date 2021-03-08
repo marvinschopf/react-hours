@@ -47,7 +47,11 @@ class Hours extends React.Component<Props> {
 		if (oh != "24/7") {
 			const ohObject = new openingHours(oh);
 			const ohIterator = ohObject.getIterator(
-				moment().day("Monday").toDate()
+				moment()
+					.day("Monday")
+					.set("hours", 23)
+					.set("minutes", 59)
+					.toDate()
 			);
 			let iteratorChanges = [];
 			let latestChange;
@@ -56,8 +60,8 @@ class Hours extends React.Component<Props> {
 					moment()
 						.day("Monday")
 						.add(1, "week")
-						.set("hours", 0)
-						.set("minutes", 0)
+						.set("hours", 23)
+						.set("minutes", 59)
 						.toDate()
 				)
 			) {
