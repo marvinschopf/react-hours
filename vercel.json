@@ -1,0 +1,5 @@
+{
+    "rewrites": [
+        { "source": "/storybook/:match*", "destination": "https://react-hours.vercel.app/:match*" }
+    ]
+  }
