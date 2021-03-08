@@ -2,3 +2,6 @@ baseURL = "/"
 languageCode = "en-us"
 title = "react-hours"
 theme = "cayman"
+
+project_name = "react-hours"
+project_tagline = "📆 react-hours is an OpenStreetMap opening_hours specification compatible editor for opening hours with a calendar frontend."
