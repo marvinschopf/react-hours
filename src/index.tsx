@@ -290,6 +290,11 @@ class Hours extends React.Component<Props> {
 					eventOverlap={false}
 					editable={true}
 					droppable={false}
+					eventTimeFormat={{
+						hour12: false,
+						hour: "2-digit",
+						minute: "2-digit",
+					}}
 				/>
 			</React.Fragment>
 		);
