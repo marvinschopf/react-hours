@@ -1,5 +1,6 @@
 {
 	"name": "react-hours",
+	"version": "1.0.0",
 	"main": "dist/cjs/index.js",
 	"module": "dist/index.js",
 	"types": "dist/index.d.ts",
