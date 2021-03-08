@@ -53,7 +53,12 @@ class Hours extends React.Component<Props> {
 			let latestChange;
 			while (
 				ohIterator.advance(
-					moment().day("Monday").add(1, "week").toDate()
+					moment()
+						.day("Monday")
+						.add(1, "week")
+						.set("hours", 0)
+						.set("minutes", 0)
+						.toDate()
 				)
 			) {
 				if (latestChange) {
@@ -79,13 +84,31 @@ class Hours extends React.Component<Props> {
 			console.debug(iteratorChanges);
 		} else {
 			this.calendarRef.current.getApi().addEvent({
-				start: moment().day("Monday").toDate(),
-				end: moment().day("Monday").add(1, "week").toDate(),
+				start: moment()
+					.day("Monday")
+					.set("hours", 0)
+					.set("minutes", 0)
+					.toDate(),
+				end: moment()
+					.day("Monday")
+					.add(1, "week")
+					.set("hours", 23)
+					.set("minutes", 59)
+					.toDate(),
 			});
 			console.debug([
 				{
-					from: moment().day("Monday").toDate(),
-					to: moment().day("Monday").add(1, "week").toDate(),
+					from: moment()
+						.day("Monday")
+						.set("hours", 0)
+						.set("minutes", 0)
+						.toDate(),
+					to: moment()
+						.day("Monday")
+						.add(1, "week")
+						.set("hours", 23)
+						.set("minutes", 59)
+						.toDate(),
 					state: true,
 				},
 			]);
