@@ -1,6 +1,6 @@
 # 📆 react-hours
 
-`react-hours` is an OpenStreetMap [`opening_hours`](https://wiki.openstreetmap.org/wiki/Key:opening_hours) specification compatible editor for opening hours with a calendar frontend
+`react-hours` is an OpenStreetMap [`opening_hours`](https://wiki.openstreetmap.org/wiki/Key:opening_hours) specification compatible editor with a calendar frontend.
 
 ## Installation
 
