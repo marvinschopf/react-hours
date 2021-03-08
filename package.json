@@ -11,6 +11,7 @@
 	},
 	"funding": "https://sponsor.marvinschopf.com/react-hours",
 	"repository": "https://github.com/marvinschopf/react-hours",
+	"homepage": "https://hours.js.org",
 	"keywords": [
 		"opening hours",
 		"business hours",
