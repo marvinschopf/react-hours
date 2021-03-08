@@ -226,13 +226,13 @@ class Hours extends React.Component<Props> {
 							}
 						});
 						if (!conflict) {
-							if (this.props.onChange) {
-								this.props.onChange(this.outputOSM());
-							}
 							this.calendarRef.current.getApi().addEvent({
 								start: selectionInfo.start,
 								end: selectionInfo.end,
 							});
+							if (this.props.onChange) {
+								this.props.onChange(this.outputOSM());
+							}
 						}
 					}}
 					locale={this.props.locale ? this.props.locale : "en"}
@@ -244,10 +244,10 @@ class Hours extends React.Component<Props> {
 						this.props.theme ? this.props.theme : "standard"
 					}
 					eventClick={(eventInfo: EventClickArg) => {
+						eventInfo.event.remove();
 						if (this.props.onChange) {
 							this.props.onChange(this.outputOSM());
 						}
-						eventInfo.event.remove();
 					}}
 					eventOverlap={false}
 					editable={true}
