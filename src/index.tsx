@@ -48,7 +48,7 @@ class Hours extends React.Component<Props> {
 		super(props);
 	}
 
-	importOSM(oh: string) {
+	private importOSM(oh: string) {
 		if (oh != "24/7") {
 			const ohObject = new openingHours(oh);
 			const ohIterator = ohObject.getIterator(
@@ -114,6 +114,13 @@ class Hours extends React.Component<Props> {
 				});
 			});
 		}
+		this.callChangeCallback();
+	}
+
+	private callChangeCallback() {
+		if (this.props.onChange) {
+			this.props.onChange(this.outputOSM());
+		}
 	}
 
 	componentDidMount() {
@@ -122,7 +129,11 @@ class Hours extends React.Component<Props> {
 		}
 	}
 
-	outputOSM(): string {
+	public getOSMString(): string {
+		return this.outputOSM();
+	}
+
+	private outputOSM(): string {
 		const events: EventApi[] = this.calendarRef.current
 			.getApi()
 			.getEvents();
@@ -225,9 +236,7 @@ class Hours extends React.Component<Props> {
 								start: selectionInfo.start,
 								end: selectionInfo.end,
 							});
-							if (this.props.onChange) {
-								this.props.onChange(this.outputOSM());
-							}
+							this.callChangeCallback();
 						}
 					}}
 					locale={this.props.locale ? this.props.locale : "en"}
@@ -240,9 +249,7 @@ class Hours extends React.Component<Props> {
 					}
 					eventClick={(eventInfo: EventClickArg) => {
 						eventInfo.event.remove();
-						if (this.props.onChange) {
-							this.props.onChange(this.outputOSM());
-						}
+						this.callChangeCallback();
 					}}
 					eventOverlap={false}
 					editable={true}
