@@ -3,5 +3,6 @@
         { "source": "/storybook", "destination": "https://react-hours.vercel.app" },
         { "source": "/storybook/", "destination": "https://react-hours.vercel.app/" },
         { "source": "/storybook/:match*", "destination": "https://react-hours.vercel.app/:match*" }
-    ]
+    ],
+    "trailingSlash": false
   }
