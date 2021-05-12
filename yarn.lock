@@ -1285,6 +1285,13 @@
     ical.js "^1.4.0"
     tslib "^2.0.3"
 
+"@fullcalendar/common@~5.7.0":
+  version "5.7.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/common/-/common-5.7.0.tgz#fe83f6dbf631c4170654386e9b522ee85c2c064b"
+  integrity sha512-8zKa4q9cQ5xjuAyN0d8AlpCrEC9Kmar5Oq3iMcPbPIO2AtNXTvifzCG44VIgm3/skjDBZ/wYvjJyyB+4WdmT6g==
+  dependencies:
+    tslib "^2.0.3"
+
 "@fullcalendar/daygrid@~5.5.0":
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-5.5.0.tgz#48f943d070a07f88cd6f8170fb757d3038239bd6"
@@ -1293,12 +1300,12 @@
     "@fullcalendar/common" "~5.5.0"
     tslib "^2.0.3"
 
-"@fullcalendar/interaction@5.5.0":
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/interaction/-/interaction-5.5.0.tgz#8fe3f2b89c55fad5835a9c74f7a95a7d97419afe"
-  integrity sha512-LKc4VeESBkBkrI/sAtV++f4qUleYyt7STBrnuc5Mpojv7jg5x5XZ1rfOarLwRbEYSvbo6CwccDrsaLTbC1Qk2A==
+"@fullcalendar/interaction@5.7.0":
+  version "5.7.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/interaction/-/interaction-5.7.0.tgz#856073b32f230f501f14d03bc30d971f82066c38"
+  integrity sha512-GSIMP+b+fN6DZQ6VFkoZvLX94r3o5MmCMRvHfUVWx4XcOF1T1rytcKtPpLv/7HQJpXwX7LAQXEJnywBcXUTbXQ==
   dependencies:
-    "@fullcalendar/common" "~5.5.0"
+    "@fullcalendar/common" "~5.7.0"
     tslib "^2.0.3"
 
 "@fullcalendar/react@5.5.0":
