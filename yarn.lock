@@ -1285,6 +1285,13 @@
     ical.js "^1.4.0"
     tslib "^2.0.3"
 
+"@fullcalendar/common@~5.8.0":
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/common/-/common-5.8.0.tgz#43e79e26e6347af83baaa603157aced67e23d549"
+  integrity sha512-cKmXNgo/9auw86MOwXxA+5FRrgvbE93C9YDwic+Alfm3bUruDTzJDnuvRndrFVurpSBLm6/ZitaR+yoWKLIsgA==
+  dependencies:
+    tslib "^2.1.0"
+
 "@fullcalendar/daygrid@~5.5.0":
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-5.5.0.tgz#48f943d070a07f88cd6f8170fb757d3038239bd6"
@@ -1301,13 +1308,13 @@
     "@fullcalendar/common" "~5.5.0"
     tslib "^2.0.3"
 
-"@fullcalendar/react@5.5.0":
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/react/-/react-5.5.0.tgz#4a74e816ee67c4de59ca6bae1a658e6e72c7970a"
-  integrity sha512-ss109y/kYIb9mwmE9dZc5c2o5I4CoqREDqLNAur83CGC5NvCH8gRzZXEilZz1E6ORuziBEYkPPtREn7Mp+6lYg==
+"@fullcalendar/react@5.8.0":
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/react/-/react-5.8.0.tgz#4e5dbcb48b82db61b359de9f0b6e6a49483ace91"
+  integrity sha512-lGvExh2It8eEfH/Pu9Al6NExwAsq4zXFspcKeXjCARqETUqI0hL7PXuxwvedFlAGUuj2cdbpEnasFc89rGeENA==
   dependencies:
-    "@fullcalendar/common" "~5.5.0"
-    tslib "^2.0.3"
+    "@fullcalendar/common" "~5.8.0"
+    tslib "^2.1.0"
 
 "@fullcalendar/timegrid@5.5.1":
   version "5.5.1"
